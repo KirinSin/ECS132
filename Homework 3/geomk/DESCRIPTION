@@ -1,0 +1,17 @@
+Package: dgeomk
+Version: 0.1
+Author:
+Maintainer:
+Date: 2016-01-31
+Title: The Geometric-K Distribution
+Description: Density, distribution function, quantile function and random
+generation for the geometric-k distribution with parameter p.
+Depends:
+Imports:
+Suggests:
+LazyLoad:
+License:
+Repository: CRAN
+NeedsCompilation: no
+Packaged: 2016-01-31 10:24:00 UTC;
+Date/Publication: 2016-01-31 10:24:00
