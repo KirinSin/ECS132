@@ -14,7 +14,7 @@
 
 dgeomk <- function(x, p, k) {
     res <- x
-    res[x==0] <- p
+    res[x==0] <- 0 # p or 0? since left end of support is 1, so 0?
     res[x<0] <- 0
     res[x>k] <- 0
     #compute c:
@@ -37,7 +37,7 @@ dgeomk <- function(x, p, k) {
 #
 pgeomk <- function(x, p, k) {
     res <- x
-    res[x==0] <- p
+    res[x==0] <- 0 #again, same reason
     res[x<0] <- 0
     res[x>k] <- 1
     #compute c:
@@ -59,10 +59,14 @@ pgeomk <- function(x, p, k) {
 # TODO:
 #
 # find the first c that P(X<=c)>q
-# TODO: for each element in q, findInterval(q, intervals),
-# need to handle some coner cases too.
+# Cannot return an integer even if P(x<=c) = q
+# precision problem I guess.
 qgeomk <- function(q, p, k) {
-    intervals <- cbind(c(0:k), pgeomk(c(0:k),p,k))
+    intervals <- pgeomk(c(0:k),p,k)
+    res <- findInterval(q, intervals)
+    idx <- which(intervals[res] < q)
+    res[idx] <- res[idx]-0.5
+    return(res)
 }
 
 # arguments:
@@ -77,5 +81,7 @@ qgeomk <- function(q, p, k) {
 # TODO:
 #
 rgeomk <- function(n, p, k) {
-
+    freqs <- dgeomk(c(1:k),p,k)
+    res <- sample(c(1:k), n, replace=T, p=freqs)
+    return(res)
 }
