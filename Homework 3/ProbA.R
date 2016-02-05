@@ -23,7 +23,7 @@ sim <- function(nreps) {
     # res <- sapply(component_num[idx], exact3failures, nreps=nreps)
     # not sure if I made a mistake or we need to improve the perf.  but using
     # equation to compute the probability of
-    # 3 defective runs very fast. However, it feels like cheeting, because it
+    # 3 defective runs very fast. However, it feels like cheating, because it
     # is basically calling dbinom(3,k,0.05)
     res <- sapply(component_num[idx], verify3failures)
     return(mean(res))
