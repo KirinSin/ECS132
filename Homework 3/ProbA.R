@@ -2,31 +2,27 @@
 # but to generate samples in parallel and also use
 # sapply. Or I'm worried that we will not be able
 # to meet the runtime limitation (if there is one).
-exact3failures <- function(k, nreps) {
-    defective_flag <- rbinom(nreps, 1, 0.05)
-    for (i in 2:k) {
-        defective_flag <- cbind(defective_flag, rbinom(nreps, 1, 0.05))
-    }
-    res <- rowSums(defective_flag)
-    return(sum(res==3)/nreps)
+exact3failures <- function(k) {
+    defective_flag <- rbinom(k, 1, 0.05)
+    if (k < 3) return(0)
+    sum(defective_flag)==3
 }
 
-verify3failures <- function(k) {
-    return(choose(k,3)*(0.05^3)*(0.95^(k-3)))
+binomial_poisson <- function(k) {
+    dpois(k,50)*dbinom(3,k,0.05)
+}
+
+verify <- function() {
+    sum(sapply(3:42, binomial_poisson))/ppois(42,50)
 }
 
 sim <- function(nreps) {
     component_num <- rpois(nreps, 50)
-    idx <- which(component_num <= 42 & component_num > 2)
-    # Even parallelizing stuff like this, using the following code will still
-    # cause the program to hang:
-    # res <- sapply(component_num[idx], exact3failures, nreps=nreps)
-    # not sure if I made a mistake or we need to improve the perf.  but using
-    # equation to compute the probability of
-    # 3 defective runs very fast. However, it feels like cheating, because it
-    # is basically calling dbinom(3,k,0.05)
-    res <- sapply(component_num[idx], verify3failures)
-    return(mean(res))
+    probless42 <- sum(component_num <= 42)/nreps
+    idx <- which(component_num <= 42)
+    res <- sapply(component_num[idx], exact3failures)
+    d3andprobless42 <- sum(res==T)/nreps
+    return(d3andprobless42/probless42)
 }
 
 
