@@ -1,0 +1,25 @@
+Math Problem A
+
+a)
+choose(82,5)*(0.05)^5*(1-0.05)^77
+
+b)
+?
+
+c)
+P(D = 3|X <= 42) = P(D = 3 && X <= 42)/P(X <= 42)
+                 = sum(n goes from 1 to 42)choose(n,3)*(0.05)^3*(1-0.05)^(n-3)/sum(n goes from 1 to 42)e^-50*50^n/n!
+
+
+Math Problem B
+
+E((X-EX)^3) = E((X-p)^3) = E(X^3 - p^3 + 3(p^2)x - 3p(x^2))
+                         = E(X^3) - E(P^3) + E(3(p^2)x) - E(3p(x^2))
+                         = E(X) - p^3 + 3(p^2)E(x) - 3pE(x^2)
+                         = p - p^3 + 3(p^2)p - 3pp
+                         = p - p^3 + 3p^3 - 3p^2
+                         = 2p^3 - 3p^2 + p
+
+Math Problem C
+
+a)
