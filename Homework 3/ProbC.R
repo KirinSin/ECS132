@@ -1,6 +1,6 @@
 getnewpass <- function(len) return(sample(0:2,len,replace=TRUE,prob=c(0.5,0.4,0.1)))
 
-sim <- function(nreps) {
+im <- function(nreps) {
     b <- getnewpass(nreps)
     b <- b + getnewpass(nreps)
     b <- b + getnewpass(nreps)
