@@ -6,12 +6,13 @@ Date: 2016-01-31
 Title: The Geometric-K Distribution
 Description: Density, distribution function, quantile function and random
     generation for the geometric-k distribution with parameter p.
-Depends: 
-Imports: 
-Suggests: mgcv 
-LazyLoad: no 
+Depends:
+Imports:
+Suggests: mgcv
+LazyLoad: no
 License: MIT
 Repository: CRAN
 NeedsCompilation: no
 Packaged: 2016-01-31 10:24:00 UTC; nm
 Date/Publication: 2016-01-31 10:24:00
+Built: R 3.2.3; ; 2016-02-13 06:32:44 UTC; unix
