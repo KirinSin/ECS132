@@ -1,7 +1,7 @@
 Package: dgeomk
 Version: 0.1
 Author: Yangzihao Wang, Justin Jia, Ethan Wang, Ho Lun Sin
-Maintainer: Yangzihao Wang, Justin Jia, Ethan Wang, Ho Lun Sin
+Maintainer: Yangzihao Wang <yzhwang@ucdavis.edu>
 Date: 2016-01-31
 Title: The Geometric-K Distribution
 Description: Density, distribution function, quantile function and random
