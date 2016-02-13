@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\topmargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.25in}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{2mm}
+
+\begin{document}
+
+ECS 132 Winter 2016 Homework 3
+
+Justin Jia, Ethan Wang, Ho Lun Sin, Yangzihao Wang
+
+\section{Math Problem A}
+
+a)
+\begin{align*}
+P(\text{5 defectives}) &= \binom{82}{5} \cdot 0.05^5 \cdot (1-0.05)^77\\
+					   &= 27285336 \cdot 3.125 \cdot 10^5 \cdot 0.0192627\\
+					   &= 0.16424
+\end{align*}
+
+b)
+\begin{align*}
+
+\end{align*}
+
+c)
+\begin{align*}
+P(D = 3 | X \leq 42) &= \frac{P(D = 3 & X \leq 42)}{P(X\leq42)}\\
+					 &= \frac{\sum_{n=1}^{42} \binom{n}{3} \cdot 0.05^3 \cdot (1-0.05)^{n-3}}{\sum_{n=1}^{42} e^{-50} \cdot \frac{50^n}{n!}}\\
+					 &= 0.4643792984
+\end{align*}
+\section{Math Problem B}
+
+\begin{align*}
+
+E((X - EX)^3) &= E((X-p)^3) &= E(X^3 - p^3 + 3(p^2) \cdot x - 3p \cdot (x^2))\\
+			  &= E(X^3) - E(p^3) + E(3\cdot(p^2)\cdot X) - E(3p\cdot X^2)\\
+			  &= E(X) - p^3 + 3(p^2)E(X) - 3p\cdot E(X^2)\\
+			  &= p - p^3 + 3p^3 - 3p^2\\
+			  &= 2p^3 - 3p^2 - p 
+
+\end{align*}
+
+\section{Math Problem C}
+
+a)
+
+\begin{align*}
+
+\end{align*}
+
+b)
+
+\begin{align*}
+
+\end{align*}
+\end{document}
