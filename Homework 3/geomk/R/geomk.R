@@ -2,15 +2,19 @@
 
 # arguments:
 #
-# x: data, a vector of positive integers
+#    x: data, a vector of positive integers
 # 
-# p: the "success" probability
+#    p: the "success" probability
 #
-# k: the right end of the support of the distribution
+#    k: the right end of the support of the distribution
 #
 # return value:
-# the vector that stores P(X=x)
 #
+#    the vector that stores P(X=x)
+
+# example:
+#   x <- {1, 2, 3}
+#   p <- dgeomk(x, 0.5, 10)
 
 dgeomk <- function(x, p, k) {
     res <- x
@@ -26,15 +30,21 @@ dgeomk <- function(x, p, k) {
 
 # arguments:
 #
-# x: data, a vector of positive integers
+#    x: data, a vector of positive integers
 # 
-# p: the "success" probability
+#    p: the "success" probability
 #
-# k: the right end of the support of the distribution
+#    k: the right end of the support of the distribution
 #
 # return value:
-# the vector that stores P(X<=x)
 #
+#    the vector that stores P(X<=x)
+
+# example:
+#
+#   x <- {1, 2, 3}
+#   ProbVector <- pgeomk(x, 0.5, 10)
+
 pgeomk <- function(x, p, k) {
     res <- x
     res[x==0] <- 0 #again, same reason
@@ -49,18 +59,25 @@ pgeomk <- function(x, p, k) {
 
 # arguments:
 #
-# q: a vector of numbers in [0,1]
+#    q: a vector of numbers in [0,1]
 # 
-# p: the "success" probability
+#    p: the "success" probability
 #
-# k: the right end of the support of the distribution
+#    k: the right end of the support of the distribution
 #
 # return value:
-# TODO:
+#
+#    a number c such that P(X<=c) = q
 #
 # find the first c that P(X<=c)>q
 # Cannot return an integer even if P(x<=c) = q
 # precision problem I guess.
+#
+# Example:
+#
+#   q <- {0.1, 0.2, 0.3, 0.4}
+#   c <- qgeomk(q, 0.5, 10)
+
 qgeomk <- function(q, p, k) {
     intervals <- pgeomk(c(0:k),p,k)
     res <- findInterval(q, intervals)
@@ -71,15 +88,17 @@ qgeomk <- function(q, p, k) {
 
 # arguments:
 #
-# n: a positive integer
+#    n: a positive integer
 # 
-# p: the "success" probability
+#    p: the "success" probability
 #
-# k: the right end of the support of the distribution
+#    k: the right end of the support of the distribution
 #
 # return value:
-# TODO:
-#
+#   a vector of n variates from the geometric distribution (1-p)^(k-1)*p
+
+# example:
+#   y <- rgeomk(10, 0.5, 10)
 rgeomk <- function(n, p, k) {
     freqs <- dgeomk(c(1:k),p,k)
     res <- sample(c(1:k), n, replace=T, p=freqs)

@@ -1,16 +1,16 @@
 Package: dgeomk
 Version: 0.1
-Author:
-Maintainer:
+Author: Yangzihao Wang, Justin Jia, Ethan Wang, Ho Lun Sin
+Maintainer: Yangzihao Wang, Justin Jia, Ethan Wang, Ho Lun Sin
 Date: 2016-01-31
 Title: The Geometric-K Distribution
 Description: Density, distribution function, quantile function and random
 generation for the geometric-k distribution with parameter p.
-Depends:
-Imports:
-Suggests:
-LazyLoad:
-License:
+Depends: N/A
+Imports: N/A
+Suggests: N/A
+LazyLoad: N/A
+License: MIT
 Repository: CRAN
 NeedsCompilation: no
 Packaged: 2016-01-31 10:24:00 UTC;
