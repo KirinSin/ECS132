@@ -1,7 +1,3 @@
-# guys, I think we need to switch to not using loop
-# but to generate samples in parallel and also use
-# sapply. Or I'm worried that we will not be able
-# to meet the runtime limitation (if there is one).
 exact3failures <- function(k) {
     defective_flag <- rbinom(k, 1, 0.05)
     if (k < 3) return(0)
