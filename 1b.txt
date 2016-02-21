@@ -1,0 +1,5 @@
+One user can review many films and one film can be reviewed by many users. 
+It is a many-to-many relationship. By keeping user data and model data separate,
+and maintain another user-to-movie relationship table, they can keep the file
+size as small as possible without duplicating entities. That's why they use a
+relational database.
