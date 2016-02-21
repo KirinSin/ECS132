@@ -1,0 +1,41 @@
+Problem 2
+
+E(L2)
+    = (2sum i=0)(isum j=0)(2sum k= 0)(i-j+k)*(PL1 = i and PA2 = j and PB2 = k)
+    = (2sum i=0)(isum j=0)(2sum k= 0)(i-j+k)*(-0.1*i^2+0.5)*choose(i j)*(0.8)^(i-j)*(0.2)^j*(-0.1*k^2+0.5)
+
+
+Problem 3
+
+
+
+
+
+altfindpi <- function(p,k){
+nilters <- ceiling(log2(k))
+prd <- p
+for(i in 1:nilters){
+prd <- prd %*% prd}
+colMeans(prd)}
+
+
+findp1<-function(p){
+n<- nrow(p)
+imp <- diag(n) - t(p)
+rhs <- c(rep(0,n-1),1)
+solve(imp,rhs)}
+
+p <- matrix(rep(0,16),nrow=4)
+p[1,2] <- 1/3
+p[1,3] <- 1/3
+p[1,4] <- 1/3
+p[2,1] <- 1/3
+p[2,3] <- 1/3
+p[2,4] <- 1/3
+p[3,1] <- 1/3
+p[3,2] <- 1/3
+p[3,4] <- 1/3
+p[4,1] <- 1/3
+p[4,2] <- 1/3
+p[4,3] <- 1/3
+findpi1(p)
