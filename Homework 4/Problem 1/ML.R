@@ -8,3 +8,19 @@ mergeall <- function() {
 
   write.table(all, file = "u.all", sep = "|", col.names = FALSE, row.names = FALSE)
 }
+
+propf <- function() {
+  user <- read.table("u.user", header = FALSE, sep = "|", fill = TRUE)
+  gender = user["V3"]
+  sum(gender == "F") / length(gender[[1]])
+}
+
+print(propf())
+
+oldest <- function() {
+  user <- read.table("u.user", header = FALSE, sep = "|", fill = TRUE)
+  age <- user["V2"]
+  max(age)
+}
+
+print(oldest())
