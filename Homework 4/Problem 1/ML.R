@@ -15,12 +15,14 @@ propf <- function() {
   sum(gender == "F") / length(gender[[1]])
 }
 
-print(propf())
-
 oldest <- function() {
   user <- read.table("u.user", header = FALSE, sep = "|", fill = TRUE)
   age <- user["V2"]
   max(age)
 }
 
-print(oldest())
+mostactive <- function() {
+  data <- read.table("u.data", header = FALSE, sep = "\t", fill = TRUE)
+  id <- data["V1"]
+  as.numeric(names(which.max(table(id))))
+}
