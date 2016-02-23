@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{blkarray}
+\newcommand{\matindex}[1]{\mbox{\scriptsize#1}}
+\allowdisplaybreaks
+
+\title{ECS 132 Homework\#4}
+\author{Bowei Jia, Ethan Wang, Alan Sin, Yangzihao Wang}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 2}
+\begin{align*}
+E(L_2) &= E(L_1 - A_2 + B_2) \\
+&=E(L_1) - E(A_2) + E(B_2) \\
+&=(0.4\times 1 + 0.1\times 2) \times 2 - E(A_2) \\
+E(A_2) &= \sum_{c}P(L_1=c)E(A_2|L_1=c) \\
+&=0 + 0.4E(A_2|L_1=1) + 0.1E(A_2|L_1=2) \\
+&=0.4 \times 0.2 \times 1 + 0.1 \times (0.2 \times 0.8 \times \binom{2}{1} \times 1 + 0.2 \times 0.2 \times 2) \\
+&= 0.12\\
+E(L_2) &= 1.2 - 0.12 = 1.08
+\end{align*}
+
+\section*{Problem 3}
+\subsection*{Part a}
+First define the initial state matrix $P$:
+\[
+  P=\begin{blockarray}{c@{\hspace{5pt}}rrrr@{\hspace{5pt}}cl}
+    & \matindex{1} & \matindex{2} & \matindex{3} & \matindex{4} & & \\
+    \begin{block}{(c@{\hspace{5pt}}rrrr@{\hspace{5pt}}c)l}
+      & 0 &  \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & & \matindex{1} \\
+      & 0 &  0 & \frac{2}{3} & \frac{1}{3} & & \matindex{2} \\
+      & 0 &  \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & & \matindex{3} \\
+      & \frac{1}{3} &  \frac{1}{3} & \frac{1}{3} & 0 & & \matindex{4} \\
+    \end{block}
+  \end{blockarray}
+\]
+Reasoning:
+\begin{itemize}
+\item[At state 1:] There is equally chance ($\frac{1}{3}$) to transfer to state 2,3,4.
+\item[At state 2:] It is impossible to go to state 1 or 2. When next item weight is 1 or 3 (with probability $\frac{2}{3}$), it will go to state 3, otherwise (next item weight is 2) it goes to state 4 ( probability $\frac{1}{3}$).
+\item[At state 3:] If next item weight is 1 (probability $\frac{1}{3}$), goes to state 4; If next item weight is 2 (probability $\frac{1}{3}$), goes to state 2; If next item weight is 3 (probability $\frac{1}{3}$), goes to state 3.
+\item[At state 4:] There is equally chance ($\frac{1}{3}$) to transfer to state 1,2,3.
+\end{itemize}
+
+Using R function \textbf{findp1} to solve, we can get the stationary distribution $\pi$ of this chain:
+\begin{align*}
+\pi &= (0.08333333, 0.25000000, 0.41666667, 0.25000000) \\
+&= (\frac{1}{12},\frac{1}{4},\frac{5}{12},\frac{1}{4})
+\end{align*}
+\subsection*{Part b}
+Let the weight of the first item placed in each box is $WF$. Then:
+\begin{align*}
+E(WF) &= P(WF=1)\times 1 +  P(WF=2)\times 2 + P(WF=3)\times 3 \\
+&= 0.25 \times \frac{1}{3} \time 1 + (0.4166667 \times \frac{1}{3} + 0.25 \times \frac{1}{3}) \times 2 + (0.4166667 \times \frac{1}{3} + 0.25 \times \frac{1}{3} \times 2) \times 3 \\
+&= 1.4444445
+\end{align*}
+Reasoning:
+\begin{itemize}
+\item[WF=1:] This happens when current box weight is 4 and next item weight is 1 (probability is $0.25 \times \frac{1}{3}$);
+\item[WF=2:] This happens when current box weight is either 3 or 4 and next item weight is 2 (probability is $0.4166667 \times \frac{1}{3} + 0.25 \times \frac{1}{3}$);
+\item[WF=3:] This happens when current box weight is either 2, 3, or 4 and next item weight is 3 (probability is $0.4166667 \times \frac{1}{3} + 0.25 \times \frac{1}{3} \times 2$);
+\end{itemize}
+\end{document}  
