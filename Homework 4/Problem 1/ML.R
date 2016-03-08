@@ -6,7 +6,7 @@ mergeall <- function() {
   all <- merge(data, user, by = 1)
   all <- merge(all, item, by.x=2, by.y=1)
 
-  write.table(all, file = "u.all", sep = "|", col.names = FALSE, row.names = FALSE)
+  write.table(all, file="u.all", sep = "|", col.names =c('movieid','userid','rating','timestamp','age','gender','occupation','zipcode','movietitle','releasedate','videoreleasedate','imdburl','unknown','action','adventure','animation','childrens','comedy','crime','documentary','drama','fantasy','film-noir','horror','musical','mystery','romance','sci-fi','thriller','war','western'), row.na    mes = FALSE)
 }
 
 propf <- function() {
