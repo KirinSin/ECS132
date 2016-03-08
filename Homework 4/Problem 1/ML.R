@@ -1,10 +1,10 @@
 mergeall <- function() {
   data <- read.table("u.data", header = FALSE, sep = "\t", fill = TRUE)
   user <- read.table("u.user", header = FALSE, sep = "|", fill = TRUE)
-  item <- read.table("u.item", header = FALSE, sep = "|", fill = TRUE)
+  item <- read.table("u.item", header = FALSE, sep = "|", fill = TRUE, quote='')
 
-  all <- merge(data, user, by = "V1")
-  all <- merge(all, item, by = "V1")
+  all <- merge(data, user, by = 1)
+  all <- merge(all, item, by.x=2, by.y=1)
 
   write.table(all, file = "u.all", sep = "|", col.names = FALSE, row.names = FALSE)
 }
