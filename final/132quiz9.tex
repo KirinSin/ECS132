@@ -49,13 +49,27 @@ Reasoning:
 \end{comment}
 
 \section*{Problem 1}
+Set up the dummy variable:
 \begin{lstlisting}[language=R]
-
+J <- as.integer(ToothGrowth$supp == "OJ")
 \end{lstlisting}
+Fit the model:
+\begin{lstlisting}[language=R]
+lmout<-lm(ToothGrowth$len ~ J + ToothGrowth$dose)
+summary(lmout)
+\end{lstlisting}
+
+The linear model is:
+\begin{align*}
+    mean\_length = 5.5725 + 3.7000 J + 9.7636 dose
+\end{align*}
+where $\beta_0$ is 5.5725, $\beta_1$ is 3.7000, and $\beta_2$ is 5.5725.
+
 \section*{Problem 2}
-\begin{lstlisting}[language=R]
+\begin{align*}
+    P_T(2) = 
+\end{align*}
 
-\end{lstlisting}
 \section*{Problem 3}
 \begin{lstlisting}[language=R]
 
