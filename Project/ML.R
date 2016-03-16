@@ -77,10 +77,31 @@ getinterval2 <- function() {
 }
 
 predict <- function() { 
-    #user <- read.table("u.peruser", header=TRUE, sep = "|", fill = TRUE, quote='')
-    data <- read.table("u.all", header=TRUE, sep = "|", fill = TRUE, quote='')
-    gender <- as.integer(data$gender =='M')
-    data$gender <- gender
-    lmout <- lm(data$rating ~ data$age + data$gender)
-    summary(lmout)
+    data <- read.table("u.peruser", header=TRUE, sep = "|", fill = TRUE, quote='')
+    lmout <- lm(data$avg.rating ~ data$age + data$gender)
+    print(summary(lmout))
+    A <- vcov(lmout)
+    sebetaage <- sqrt(c(0,1,0) %*% A %*% c(0,1,0))
+    betaage <- lmout$coefficients[2]
+    radius <- 1.96*sebetaage
+    cat("approx. CI for beta age = ", betaage - radius, " to ", betaage + radius, "\n") 
+    bar <- c(1,28,0) %*% lmout$coefficients
+    semean <- sqrt(c(1,28,0) %*% A %*% c(1,28,0))
+    radius <- 1.96*semean
+    cat("mean rating of women of age 28: ", bar, "\n")
+    cat("approx. CI for population mean rating of women of age 28 = ", bar - radius, " to ", bar + radius, "\n") 
+}
+
+predictplot <- function() {
+    data <- read.table("u.peruser", header=TRUE, sep = "|", fill = TRUE, quote='')
+    p<-data.frame(data$avg.rating)
+    colnames(p)<-c("ratings")
+    p$gender<-data$gender
+    p$age<-data$age
+    lp<-ggplot(p,
+           aes(x=age,
+               y=ratings,
+               colour = ifelse(gender==1, 'male', 'female'),
+               )) + geom_point() + labs(title="Plot of Ratings by various ages and genders (F/M)\n", colour="Gender")+ geom_smooth(method=lm) + ylab("Rating") + xlab("Age")
+    ggsave("predict.pdf")
 }
