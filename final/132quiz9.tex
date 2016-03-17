@@ -59,6 +59,28 @@ lmout<-lm(ToothGrowth$len ~ J + ToothGrowth$dose)
 summary(lmout)
 \end{lstlisting}
 
+The output of the summary(lmout):
+\begin{lstlisting}[language=R]
+Call:
+lm(formula = ToothGrowth$len ~ J + ToothGrowth$dose)
+
+Residuals:
+Min     1Q Median     3Q    Max 
+-6.600 -3.700  0.373  2.116  8.800 
+
+Coefficients:
+Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        5.5725     1.2824   4.345 5.79e-05 ***
+J                  3.7000     1.0936   3.383   0.0013 ** 
+ToothGrowth$dose   9.7636     0.8768  11.135 6.31e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.236 on 57 degrees of freedom
+Multiple R-squared:  0.7038,    Adjusted R-squared:  0.6934 
+F-statistic: 67.72 on 2 and 57 DF,  p-value: 8.716e-16
+\end{lstlisting}
+
 The linear model is:
 \begin{align*}
     mean\_length = 5.5725 + 3.7000 J + 9.7636 dose
@@ -67,11 +89,26 @@ where $\beta_0$ is 5.5725, $\beta_1$ is 3.7000, and $\beta_2$ is 5.5725.
 
 \section*{Problem 2}
 \begin{align*}
-    P_T(2) = 
+    P_T(2) &= P_T(Y = 1|X = 1) + P_T(Y = 0|X = 2) \\
+           &= 0.5 \cdot 0.5 \cdot 2 \cdot 0.5 + 0.5 \cdot 0.5 \cdot 0.5 \cdot 0.5\\
+           &= 0.3125
 \end{align*}
 
 \section*{Problem 3}
 \begin{lstlisting}[language=R]
+pval <- function(x, p0) {
+    phat <- mean(x)
+    Z <- (phat - p0)/sqrt(p0*(1-p0)/length(x))
+    2*(1-pnorm(Z,0.1))
+}
+\end{lstlisting}
 
+\section*{Problem 4}
+\begin{lstlisting}[language=R]
+qpqinv <-function(lmout) {
+    error <- coef(summary(lmout))[, "Std. Error"]
+    cov <- vcov(lmout)
+    result = cov/error**2
+}
 \end{lstlisting}
 \end{document}  
