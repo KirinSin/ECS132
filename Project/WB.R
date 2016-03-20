@@ -7,6 +7,7 @@ loadtable <- function() {
 
     # only extract necessary information for our regression analysis
     dd<-data.frame(d$data_id, d$age, d$birth_order, d$ethnicity, d$sex, d$mom_ed, d$vocab)
+    dd[is.na(dd)] <- 0
 
     # form dummy variables for gender and ethnicity
     dd$d.sex<-as.integer(dd$d.sex=="Male")
@@ -28,6 +29,8 @@ loadtable <- function() {
     return(dd)
 }
 
-predict <- function(data) {
 
-}
+x = loadtable()
+
+summary(lm(x$vocab ~ x$age + x$bo + x$gender + x$momed + x$black + x$white + x$asian + x$hispanic))
+summary(lm(x$vocab ~ x$age))

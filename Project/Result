@@ -1,0 +1,387 @@
+## Age + Gender + Race + Education + Birth Order
+
+Call:
+lm(formula = x$vocab ~ x$age + x$is_male + x$is_asian + x$is_black +
+    x$is_hispanic + x$is_white + x$is_primary + x$is_some_secondary +
+    x$is_secondary + x$is_some_college + x$is_college + x$is_some_graduate +
+    x$is_graduate + x$is_first + x$is_second + x$is_third + x$is_fourth +
+    x$is_fifth + x$is_sixth + x$is_seventh + x$is_eighth)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-464.46  -96.28   -4.51   94.00  471.77
+
+Coefficients: (2 not defined because of singularities)
+                     Estimate Std. Error t value Pr(>|t|)
+(Intercept)         -583.1965   145.0625  -4.020 5.97e-05 ***
+x$age                 33.3164     0.6432  51.800  < 2e-16 ***
+x$is_male            -48.6006     5.4930  -8.848  < 2e-16 ***
+x$is_asian            38.3629    22.7837   1.684 0.092338 .
+x$is_black            54.0626    17.3605   3.114 0.001864 **
+x$is_hispanic        -23.1461    19.1766  -1.207 0.227539
+x$is_white            53.0242    15.3290   3.459 0.000550 ***
+x$is_primary        -106.3800    51.5485  -2.064 0.039142 *
+x$is_some_secondary  -49.9880    15.0552  -3.320 0.000911 ***
+x$is_secondary       -21.4568     9.3609  -2.292 0.021971 *
+x$is_some_college    -29.5289     8.4764  -3.484 0.000502 ***
+x$is_college         -17.9607     7.7583  -2.315 0.020686 *
+x$is_some_graduate    -8.1601    12.9772  -0.629 0.529532
+x$is_graduate              NA         NA      NA       NA
+x$is_first           115.7452   143.7341   0.805 0.420733
+x$is_second           90.1358   143.7723   0.627 0.530755
+x$is_third            66.9958   143.9505   0.465 0.641676
+x$is_fourth           81.6032   144.4836   0.565 0.572262
+x$is_fifth            40.9479   147.1721   0.278 0.780856
+x$is_sixth            -2.1739   150.7379  -0.014 0.988494
+x$is_seventh         -63.5342   160.6141  -0.396 0.692453
+x$is_eighth                NA         NA      NA       NA
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 143.2 on 2721 degrees of freedom
+  (2757 observations deleted due to missingness)
+Multiple R-squared:  0.5151,	Adjusted R-squared:  0.5117
+F-statistic: 152.1 on 19 and 2721 DF,  p-value: < 2.2e-16
+
+## Age + Gender + Race + Education
+
+Call:
+lm(formula = x$vocab ~ x$age + x$is_male + x$is_asian + x$is_black +
+    x$is_hispanic + x$is_white + x$is_primary + x$is_some_secondary +
+    x$is_secondary + x$is_some_college + x$is_college + x$is_some_graduate +
+    x$is_graduate)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-529.81  -96.19   -7.42   96.67  464.58
+
+Coefficients: (1 not defined because of singularities)
+                     Estimate Std. Error t value Pr(>|t|)
+(Intercept)         -494.3336    22.1385 -22.329  < 2e-16 ***
+x$age                 33.4282     0.6467  51.694  < 2e-16 ***
+x$is_male            -47.1064     5.5199  -8.534  < 2e-16 ***
+x$is_asian            52.3822    22.8487   2.293 0.021948 *
+x$is_black            63.0355    17.3771   3.628 0.000291 ***
+x$is_hispanic        -12.5909    19.2472  -0.654 0.513058
+x$is_white            63.6765    15.3277   4.154 3.36e-05 ***
+x$is_primary        -120.1506    51.9003  -2.315 0.020685 *
+x$is_some_secondary  -62.7849    15.0051  -4.184 2.95e-05 ***
+x$is_secondary       -27.3765     9.3618  -2.924 0.003481 **
+x$is_some_college    -34.4885     8.4866  -4.064 4.96e-05 ***
+x$is_college         -18.6306     7.8068  -2.386 0.017079 *
+x$is_some_graduate    -6.5643    13.0189  -0.504 0.614152
+x$is_graduate              NA         NA      NA       NA
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 144.5 on 2738 degrees of freedom
+  (2747 observations deleted due to missingness)
+Multiple R-squared:  0.505,	Adjusted R-squared:  0.5028
+F-statistic: 232.8 on 12 and 2738 DF,  p-value: < 2.2e-16
+
+## Age + Gender + Race + Birth Order
+
+Call:
+lm(formula = x$vocab ~ x$age + x$is_male + x$is_asian + x$is_black +
+    x$is_hispanic + x$is_white + x$is_first + x$is_second + x$is_third +
+    x$is_fourth + x$is_fifth + x$is_sixth + x$is_seventh + x$is_eighth)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-468.33  -96.59   -5.90   95.63  467.52
+
+Coefficients: (1 not defined because of singularities)
+               Estimate Std. Error t value Pr(>|t|)
+(Intercept)   -597.6883   145.2645  -4.114 4.00e-05 ***
+x$age           33.1858     0.6429  51.623  < 2e-16 ***
+x$is_male      -49.7704     5.4915  -9.063  < 2e-16 ***
+x$is_asian      48.5021    22.5199   2.154  0.03135 *
+x$is_black      54.1148    17.3407   3.121  0.00182 **
+x$is_hispanic  -22.3777    19.1199  -1.170  0.24195
+x$is_white      62.2289    14.9151   4.172 3.11e-05 ***
+x$is_first     108.7382   144.0532   0.755  0.45041
+x$is_second     81.9897   144.0784   0.569  0.56936
+x$is_third      53.1091   144.2258   0.368  0.71273
+x$is_fourth     70.2990   144.7372   0.486  0.62722
+x$is_fifth      26.6896   147.4437   0.181  0.85637
+x$is_sixth     -16.8381   150.9469  -0.112  0.91119
+x$is_seventh   -74.0882   161.0414  -0.460  0.64551
+x$is_eighth          NA         NA      NA       NA
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 143.6 on 2737 degrees of freedom
+  (2747 observations deleted due to missingness)
+Multiple R-squared:  0.5104,	Adjusted R-squared:  0.5081
+F-statistic: 219.5 on 13 and 2737 DF,  p-value: < 2.2e-16
+
+## Age + Gender + Education + Birth Order
+
+Call:
+lm(formula = x$vocab ~ x$age + x$is_male + x$is_primary + x$is_some_secondary +
+    x$is_secondary + x$is_some_college + x$is_college + x$is_some_graduate +
+    x$is_graduate + x$is_first + x$is_second + x$is_third + x$is_fourth +
+    x$is_fifth + x$is_sixth + x$is_seventh + x$is_eighth)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-504.64  -97.23   -4.20   95.59  481.29
+
+Coefficients: (2 not defined because of singularities)
+                     Estimate Std. Error t value Pr(>|t|)
+(Intercept)         -525.4259   145.1087  -3.621 0.000299 ***
+x$age                 33.0998     0.6472  51.144  < 2e-16 ***
+x$is_male            -48.7623     5.5288  -8.820  < 2e-16 ***
+x$is_primary        -138.7207    51.5020  -2.694 0.007114 **
+x$is_some_secondary  -66.4481    14.3815  -4.620 4.01e-06 ***
+x$is_secondary       -27.0574     9.3046  -2.908 0.003668 **
+x$is_some_college    -33.2245     8.4961  -3.911 9.43e-05 ***
+x$is_college         -17.6087     7.8082  -2.255 0.024202 *
+x$is_some_graduate    -7.4526    13.0665  -0.570 0.568479
+x$is_graduate              NA         NA      NA       NA
+x$is_first           113.7761   144.5091   0.787 0.431158
+x$is_second           85.9558   144.5453   0.595 0.552118
+x$is_third            61.9861   144.7332   0.428 0.668482
+x$is_fourth           70.7280   145.3100   0.487 0.626483
+x$is_fifth            33.9537   148.0655   0.229 0.818641
+x$is_sixth             4.4790   151.6024   0.030 0.976433
+x$is_seventh         -76.3829   161.5033  -0.473 0.636287
+x$is_eighth                NA         NA      NA       NA
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 144.3 on 2728 degrees of freedom
+  (2754 observations deleted due to missingness)
+Multiple R-squared:  0.5066,	Adjusted R-squared:  0.5038
+F-statistic: 186.7 on 15 and 2728 DF,  p-value: < 2.2e-16
+
+## Age + Race + Education + Birth Order
+
+Call:
+lm(formula = x$vocab ~ x$age + x$is_asian + x$is_black + x$is_hispanic +
+    x$is_white + x$is_primary + x$is_some_secondary + x$is_secondary +
+    x$is_some_college + x$is_college + x$is_some_graduate + x$is_graduate +
+    x$is_first + x$is_second + x$is_third + x$is_fourth + x$is_fifth +
+    x$is_sixth + x$is_seventh + x$is_eighth)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-488.68  -96.16   -6.04   99.25  446.81
+
+Coefficients: (2 not defined because of singularities)
+                     Estimate Std. Error t value Pr(>|t|)
+(Intercept)         -629.7026   147.0107  -4.283  1.9e-05 ***
+x$age                 33.2287     0.6522  50.952  < 2e-16 ***
+x$is_asian            33.1989    23.0973   1.437 0.150734
+x$is_black            54.9100    17.6050   3.119 0.001834 **
+x$is_hispanic        -23.1779    19.4469  -1.192 0.233423
+x$is_white            53.4304    15.5450   3.437 0.000597 ***
+x$is_primary        -119.3969    52.2539  -2.285 0.022393 *
+x$is_some_secondary  -55.3248    15.2552  -3.627 0.000292 ***
+x$is_secondary       -22.7860     9.4916  -2.401 0.016433 *
+x$is_some_college    -31.7229     8.5922  -3.692 0.000227 ***
+x$is_college         -19.3243     7.8661  -2.457 0.014086 *
+x$is_some_graduate    -9.9851    13.1585  -0.759 0.448016
+x$is_graduate              NA         NA      NA       NA
+x$is_first           140.0945   145.7335   0.961 0.336484
+x$is_second          115.6699   145.7696   0.794 0.427549
+x$is_third            93.0393   145.9492   0.637 0.523868
+x$is_fourth          111.0160   146.4816   0.758 0.448586
+x$is_fifth            67.0674   149.2167   0.449 0.653133
+x$is_sixth            28.5648   152.8222   0.187 0.851741
+x$is_seventh         -13.9422   162.7790  -0.086 0.931750
+x$is_eighth                NA         NA      NA       NA
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 145.2 on 2722 degrees of freedom
+  (2757 observations deleted due to missingness)
+Multiple R-squared:  0.5012,	Adjusted R-squared:  0.4979
+F-statistic: 151.9 on 18 and 2722 DF,  p-value: < 2.2e-16
+
+## Gender + Race + Education + Birth Order
+
+Call:
+lm(formula = x$vocab ~ x$is_male + x$is_asian + x$is_black +
+    x$is_hispanic + x$is_white + x$is_primary + x$is_some_secondary +
+    x$is_secondary + x$is_some_college + x$is_college + x$is_some_graduate +
+    x$is_graduate + x$is_first + x$is_second + x$is_third + x$is_fourth +
+    x$is_fifth + x$is_sixth + x$is_seventh + x$is_eighth)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-322.25 -185.11  -29.48  171.44  492.56
+
+Coefficients: (2 not defined because of singularities)
+                    Estimate Std. Error t value Pr(>|t|)
+(Intercept)           16.365    203.748   0.080   0.9360
+x$is_male            -44.216      7.739  -5.713 1.23e-08 ***
+x$is_asian            14.187     32.097   0.442   0.6585
+x$is_black            42.395     24.460   1.733   0.0832 .
+x$is_hispanic        -20.704     27.021  -0.766   0.4436
+x$is_white            28.576     21.589   1.324   0.1857
+x$is_primary         -94.236     72.633  -1.297   0.1946
+x$is_some_secondary  -36.134     21.210  -1.704   0.0886 .
+x$is_secondary         9.191     13.164   0.698   0.4851
+x$is_some_college    -17.087     11.939  -1.431   0.1525
+x$is_college         -10.543     10.930  -0.965   0.3348
+x$is_some_graduate     1.523     18.284   0.083   0.9336
+x$is_graduate             NA         NA      NA       NA
+x$is_first           283.303    202.476   1.399   0.1619
+x$is_second          251.709    202.534   1.243   0.2140
+x$is_third           214.426    202.793   1.057   0.2904
+x$is_fourth          243.260    203.536   1.195   0.2321
+x$is_fifth           196.995    207.328   0.950   0.3421
+x$is_sixth           178.977    212.339   0.843   0.3994
+x$is_seventh          37.882    226.295   0.167   0.8671
+x$is_eighth               NA         NA      NA       NA
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 201.8 on 2722 degrees of freedom
+  (2757 observations deleted due to missingness)
+Multiple R-squared:  0.03696,	Adjusted R-squared:  0.0306
+F-statistic: 5.804 on 18 and 2722 DF,  p-value: 6.711e-14
+
+## Age + Gender
+
+Call:
+lm(formula = x$vocab ~ x$age + x$is_male)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-545.37  -76.50   -5.42   91.22  518.75
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)
+(Intercept) -484.1307    10.3192 -46.915   <2e-16 ***
+x$age         34.8168     0.4394  79.239   <2e-16 ***
+x$is_male    -39.6868     4.3099  -9.208   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 137.5 on 4069 degrees of freedom
+  (1426 observations deleted due to missingness)
+Multiple R-squared:  0.6095,	Adjusted R-squared:  0.6093
+F-statistic:  3176 on 2 and 4069 DF,  p-value: < 2.2e-16
+
+## Age
+
+Call:
+lm(formula = x$vocab ~ x$age)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-515.04  -83.67   -9.25   95.33  595.22
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)
+(Intercept) -503.3810     9.2151  -54.63   <2e-16 ***
+x$age         34.4475     0.4037   85.32   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 141.3 on 5496 degrees of freedom
+Multiple R-squared:  0.5698,	Adjusted R-squared:  0.5697
+F-statistic:  7279 on 1 and 5496 DF,  p-value: < 2.2e-16
+
+## Gender
+
+Call:
+lm(formula = x$vocab ~ x$is_male)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-295.07 -213.29  -41.07  202.77  420.71
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)  296.074      4.924  60.124  < 2e-16 ***
+x$is_male    -36.789      6.872  -5.354  9.1e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 219.2 on 4070 degrees of freedom
+  (1426 observations deleted due to missingness)
+Multiple R-squared:  0.006993,	Adjusted R-squared:  0.006749
+F-statistic: 28.66 on 1 and 4070 DF,  p-value: 9.099e-08
+
+## Race
+
+Call:
+lm(formula = x$vocab ~ x$is_asian + x$is_black + x$is_hispanic +
+    x$is_white)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-280.32 -191.63  -33.32  178.68  446.58
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)
+(Intercept)    225.420     20.424  11.037   <2e-16 ***
+x$is_asian      38.524     31.697   1.215   0.2243
+x$is_black      58.329     24.449   2.386   0.0171 *
+x$is_hispanic   -2.172     27.033  -0.080   0.9360
+x$is_white      54.900     20.878   2.630   0.0086 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 204.2 on 2758 degrees of freedom
+  (2735 observations deleted due to missingness)
+Multiple R-squared:  0.005969,	Adjusted R-squared:  0.004527
+F-statistic:  4.14 on 4 and 2758 DF,  p-value: 0.002397
+
+## Education
+
+Call:
+lm(formula = x$vocab ~ x$is_primary + x$is_some_secondary + x$is_secondary +
+    x$is_some_college + x$is_college + x$is_some_graduate + x$is_graduate)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-287.14 -190.48  -36.48  178.78  433.95
+
+Coefficients: (1 not defined because of singularities)
+                     Estimate Std. Error t value Pr(>|t|)
+(Intercept)          289.1352     8.5078  33.985  < 2e-16 ***
+x$is_primary        -144.6352    72.7530  -1.988 0.046907 *
+x$is_some_secondary  -66.0883    19.9668  -3.310 0.000945 ***
+x$is_secondary        -2.9366    12.9938  -0.226 0.821219
+x$is_some_college    -26.6593    11.9111  -2.238 0.025289 *
+x$is_college         -12.6599    11.0235  -1.148 0.250886
+x$is_some_graduate     0.4126    18.3957   0.022 0.982108
+x$is_graduate              NA         NA      NA       NA
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 204.4 on 2747 degrees of freedom
+  (2744 observations deleted due to missingness)
+Multiple R-squared:  0.006753,	Adjusted R-squared:  0.004584
+F-statistic: 3.113 on 6 and 2747 DF,  p-value: 0.004842
+
+## Birth Order
+
+Call:
+lm(formula = x$vocab ~ x$is_first + x$is_second + x$is_third +
+    x$is_fourth + x$is_fifth + x$is_sixth + x$is_seventh + x$is_eighth)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-296.44 -189.49  -33.92  175.31  454.51
+
+Coefficients: (1 not defined because of singularities)
+             Estimate Std. Error t value Pr(>|t|)
+(Intercept)       4.0      203.2   0.020    0.984
+x$is_first      292.4      203.3   1.438    0.150
+x$is_second     260.0      203.3   1.279    0.201
+x$is_third      218.5      203.6   1.073    0.283
+x$is_fourth     248.7      204.3   1.217    0.224
+x$is_fifth      198.9      208.2   0.955    0.339
+x$is_sixth      195.4      213.1   0.917    0.359
+x$is_seventh     59.5      227.2   0.262    0.793
+x$is_eighth        NA         NA      NA       NA
+
+Residual standard error: 203.2 on 2746 degrees of freedom
+  (2744 observations deleted due to missingness)
+Multiple R-squared:  0.01739,	Adjusted R-squared:  0.01488
+F-statistic: 6.942 on 7 and 2746 DF,  p-value: 3.238e-08
