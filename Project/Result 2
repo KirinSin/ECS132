@@ -1,0 +1,116 @@
+## Age + Gender + Race + Education + Birth Order
+
+Call:
+lm(formula = x$vocab ~ x$age + x$is_male + x$is_asian + x$is_black +
+    x$is_hispanic + x$is_white + x$education + x$order)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-466.24  -95.93   -5.57   94.52  479.39
+
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)
+(Intercept)   -506.4476    24.0368 -21.070  < 2e-16 ***
+x$age           33.3959     0.6423  51.995  < 2e-16 ***
+x$is_male      -49.0107     5.4845  -8.936  < 2e-16 ***
+x$is_asian      37.9552    22.6879   1.673 0.094456 .
+x$is_black      55.0610    17.2999   3.183 0.001475 **
+x$is_hispanic  -21.7433    19.1140  -1.138 0.255403
+x$is_white      54.2259    15.1298   3.584 0.000344 ***
+x$education      7.6645     1.9797   3.871 0.000111 ***
+x$order        -20.5325     3.0899  -6.645 3.64e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 143.2 on 2732 degrees of freedom
+  (2757 observations deleted due to missingness)
+Multiple R-squared:  0.5131,	Adjusted R-squared:  0.5117
+F-statistic: 359.9 on 8 and 2732 DF,  p-value: < 2.2e-16
+
+## Age + Gender + Education
+
+Call:
+lm(formula = x$vocab ~ x$age + x$is_male + x$education)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-505.70  -97.08   -8.59   98.00  487.35
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)
+(Intercept) -514.9431    18.2639 -28.195  < 2e-16 ***
+x$age         33.2519     0.6516  51.033  < 2e-16 ***
+x$is_male    -47.5352     5.5623  -8.546  < 2e-16 ***
+x$education   12.6961     1.8943   6.702 2.48e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 145.9 on 2750 degrees of freedom
+  (2744 observations deleted due to missingness)
+Multiple R-squared:  0.4934,	Adjusted R-squared:  0.4929
+F-statistic: 892.8 on 3 and 2750 DF,  p-value: < 2.2e-16
+
+## Age + Gender + Birth Order
+
+Call:
+lm(formula = x$vocab ~ x$age + x$is_male + x$order)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-501.36  -97.56   -7.09   99.01  472.81
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)
+(Intercept) -401.4303    16.0952 -24.941   <2e-16 ***
+x$age         32.9116     0.6473  50.842   <2e-16 ***
+x$is_male    -50.3225     5.5339  -9.093   <2e-16 ***
+x$order      -25.6453     3.0265  -8.473   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 145.1 on 2750 degrees of freedom
+  (2744 observations deleted due to missingness)
+Multiple R-squared:  0.4985,	Adjusted R-squared:  0.498
+F-statistic: 911.3 on 3 and 2750 DF,  p-value: < 2.2e-16
+
+## Education
+
+Call:
+lm(formula = x$vocab ~ x$education)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-288.60 -192.16  -34.83  179.80  416.80
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)  242.649     13.288  18.261   <2e-16 ***
+x$education    6.851      2.651   2.585   0.0098 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 204.6 on 2752 degrees of freedom
+  (2744 observations deleted due to missingness)
+Multiple R-squared:  0.002421,	Adjusted R-squared:  0.002059
+F-statistic:  6.68 on 1 and 2752 DF,  p-value: 0.009802
+
+## Birth Order
+
+Call:
+lm(formula = x$vocab ~ x$order)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-294.09 -190.79  -34.47  176.09  467.63
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept)  321.325      8.175  39.307  < 2e-16 ***
+x$order      -27.239      4.237  -6.429 1.51e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 203.3 on 2752 degrees of freedom
+  (2744 observations deleted due to missingness)
+Multiple R-squared:  0.0148,	Adjusted R-squared:  0.01444
+F-statistic: 41.33 on 1 and 2752 DF,  p-value: 1.512e-10
