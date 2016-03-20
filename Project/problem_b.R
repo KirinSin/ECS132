@@ -36,6 +36,28 @@ loadtable_dummy <- function() {
     return(data)
 }
 
+predictplot1 <- function(data) {
+    p<-data.frame(data$vocab)
+    colnames(p)<-c("vocab")
+    p$gender<-data$gender
+    p$age<-data$age
+    p<-na.omit(p)
+    lp<-ggplot(p,
+           aes(x=age,
+               y=vocab,
+               colour = ifelse(gender==1, 'male', 'female'),
+               )) + geom_point() + labs(title="Plot of Vocabulary by various ages and genders (F/M)\n", colour="Gender")+ geom_smooth(method=lm) + ylab("Vocabulary") + xlab("Age")
+    ggsave("wordbank-age-gender.pdf")
+}
+
+quantileplot1 <- function(data) {
+    p<-data.frame(data$vocab)
+    colnames(p)<-c("vocab")
+    p$age<-data$age
+    lp<-ggplot(p, aes(x=age, y=vocab)) + geom_point() + stat_quantile(aes(colour = ..quantile..), quantiles = seq(0.1, 0.9, by=0.1), method = "rqss") + ylab("Vocabulary") + xlab("Age")
+    ggsave("quantile-vocab-age.pdf")
+}
+
 # Loading data to the data frame. Treating mother's education, bady's race as
 # level variables and birth order as dummy variables.
 loadtable <- function() {
